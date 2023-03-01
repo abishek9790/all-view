@@ -1,0 +1,22 @@
+{% extends 'app/dummy.html' %}
+{% block title %}
+    <title>list</title>
+{% endblock %}
+{% block body_block %}
+{% if form.instance.pk %}
+<h1>update the details:</h1>
+{% else %}
+<h1>form for inserting the data into school</h1>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+
+{% if form.instance.pk %}
+<input type="submit" value="update" class="btn btn-outline-success">
+{% else %}
+<input type="submit" value="create" class="btn btn-outline-primary">
+{% endif %}
+</form>
+{% endblock %}
